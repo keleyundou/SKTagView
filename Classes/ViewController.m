@@ -37,10 +37,11 @@
         view.padding    = UIEdgeInsetsMake(12, 12, 12, 12);
         view.insets    = 15;
         view.lineSpace = 10;
-        __weak SKTagView *weakView = view;
-        view.didClickTagAtIndex = ^(NSUInteger index){
+        __weak SKTagView *weakView = view;(void)weakView;
+        view.didClickTagAtIndex = ^(NSUInteger index, SKTagButton *btn){
             //Remove tag
-            [weakView removeTagAtIndex:index];
+//            [weakView removeTagAtIndex:index];
+            btn.selected = !btn.selected;
         };
         view;
     });
@@ -56,13 +57,20 @@
     [@[@"Python", @"Javascript", @"Python", @"HTML", @"Go", @"Objective-C",@"C", @"PHP"] enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop)
      {
          SKTag *tag = [SKTag tagWithText:obj];
-         tag.textColor = [UIColor whiteColor];
+         tag.textColor = [UIColor colorWithHexString:@"#0a70ba"];
+         tag.selectedTextColor = [UIColor whiteColor];
          tag.fontSize = 15;
-         //tag.font = [UIFont fontWithName:@"Courier" size:15];
+         tag.font = [UIFont fontWithName:@"Courier" size:15];
          tag.padding = UIEdgeInsetsMake(13.5, 12.5, 13.5, 12.5);
-         tag.bgColor = [UIColor colorWithHexString:self.colorPool[idx % self.colorPool.count]];
+         tag.bgColor = tag.bgColor = [UIColor whiteColor];
+         //[UIColor colorWithHexString:self.colorPool[idx % self.colorPool.count]];
+         tag.bgSelectedImg = [tag imageWithColor:[UIColor colorWithHexString:@"#0a70ba"]];
          tag.cornerRadius = 5;
-         
+         tag.borderWidth = 1;
+         tag.borderColor = [UIColor colorWithHexString:@"#0a70ba"];
+         if (idx == 1 || idx == 3) {
+             tag.selected = YES;
+         }
          [self.tagView addTag:tag];
      }];
 }

@@ -6,7 +6,6 @@
 //
 
 #import "SKTagView.h"
-#import "SKTagButton.h"
 #import <Masonry/Masonry.h>
 
 #define SAVE_C(c) [self.tagsContraints addObject:c]
@@ -263,7 +262,7 @@
 {
     if (self.didClickTagAtIndex)
     {
-        self.didClickTagAtIndex([self.subviews indexOfObject:btn]);
+        self.didClickTagAtIndex([self.subviews indexOfObject:btn], (SKTagButton *)btn);
     }
 }
 

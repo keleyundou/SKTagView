@@ -11,7 +11,8 @@
 + (instancetype)buttonWithTag:(SKTag *)tag
 {
 	SKTagButton *btn = [super buttonWithType:UIButtonTypeCustom];
-	
+    //add by 冰点
+    btn.selected = tag.selected;
 	if (tag.attributedText) {
 		[btn setAttributedTitle:tag.attributedText forState:UIControlStateNormal];
 	} else {
@@ -19,7 +20,12 @@
 		[btn setTitleColor:tag.textColor forState:UIControlStateNormal];
 		btn.titleLabel.font = tag.font ?: [UIFont systemFontOfSize:tag.fontSize];
 	}
-	
+    //add by 冰点
+    if (tag.selectedTextColor) {
+        [btn setTitleColor:tag.selectedTextColor forState:UIControlStateSelected];
+    }
+    
+    
 	btn.backgroundColor = tag.bgColor;
 	btn.contentEdgeInsets = tag.padding;
 	btn.titleLabel.lineBreakMode = NSLineBreakByTruncatingTail;
@@ -27,6 +33,9 @@
     if (tag.bgImg)
     {
         [btn setBackgroundImage:tag.bgImg forState:UIControlStateNormal];
+    }
+    if (tag.bgSelectedImg) {
+        [btn setBackgroundImage:tag.bgSelectedImg forState:UIControlStateSelected];
     }
     
     if (tag.borderColor)

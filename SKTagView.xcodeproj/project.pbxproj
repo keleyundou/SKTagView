@@ -189,6 +189,7 @@
 				682ABA671A36933300D57A1A /* Frameworks */,
 				682ABA681A36933300D57A1A /* Resources */,
 				FAE40ECF28B915D0419B9B28 /* Copy Pods Resources */,
+				31E14413C2ECF80158CF701E /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -275,6 +276,21 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		31E14413C2ECF80158CF701E /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SKTagView/Pods-SKTagView-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		56A572FD8CB365055FBC8C48 /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;

@@ -7,6 +7,7 @@
 
 #import <UIKit/UIKit.h>
 #import "SKTag.h"
+#import "SKTagButton.h"
 
 @interface SKTagView : UIView
 
@@ -22,7 +23,8 @@
 - (void)removeTagAtIndex:(NSUInteger)index;
 - (void)removeAllTags;
 
-@property (nonatomic, copy) void (^didClickTagAtIndex)(NSUInteger index);
+//@property (nonatomic, copy) void(^didClickTagAtIndex)(NSUInteger index);
+@property (nonatomic, copy) void (^didClickTagAtIndex)(NSUInteger index, SKTagButton *btn);
 
 @end
 
